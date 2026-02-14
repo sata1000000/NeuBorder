@@ -1,0 +1,36 @@
+name: Release Theme on Manifest Update
+
+on:
+  push:
+    paths:
+      - 'manifest.json'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get Version from Manifest
+        id: get_version
+        run: |
+          VERSION=$(jq -r .version manifest.json)
+          echo "Detected version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: ${{ env.VERSION }}
+          draft: false
+          prerelease: false
+          files: |
+            manifest.json
+            theme.css
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
