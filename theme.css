@@ -803,7 +803,7 @@ body:not(.is-mobile).scrollbar-space-occupation-off :is(.mk-file-tree>div>div) {
   border-radius: var(--button-radius-medium);
   margin: 0 8px;
   cursor: pointer;
-  color: var(--text-muted);
+  color: var(--text-normal);
   position: relative;
   box-shadow: var(--shadow);
   margin-left: 5px;
@@ -1037,6 +1037,11 @@ body:not(.is-mobile) .workspace::before {
   padding-right: 135px !important;
 }
 
+/* Change the right iconbar size to only fit the sidebar collapse button in MacOS */
+.mod-macos .mod-right-split .workspace-tab-header-container {
+  padding-right: 50px !important;
+}
+
 /* Defines window control circles */
 .titlebar-button-container.mod-right .titlebar-button {
   padding: 0 !important;
@@ -1061,13 +1066,15 @@ body.is-hidden-frameless .titlebar .titlebar-button-container.mod-right {
 }
 
 /* Creates the extended bar - RESTRICTED to right container */
-body.is-hidden-frameless .titlebar .titlebar-button-container.mod-right::before {
+.titlebar .titlebar-button-container.mod-right::before {
   content: '';
   position: absolute;  /* Required for placement */
   left: 5px; 
-  width: 2px;  
+  width: calc(100% + 10px);  /* Increased width to cover the right margin */
   height: calc(100% + 5px); /* Add some horizontal space to account for border at the bottom*/
-  background-color: var(--color-base-20); /* The white line color */
+  background-color: var(--background-tertiary); /* The background color */
+  border-left: 2px solid var(--color-base-20); /* The white line color, moved to border */
+  z-index: -1; /* Ensures buttons float on top */
 }
 
 /* Defines horizontal positioning of window control buttons */
@@ -2076,6 +2083,7 @@ body:not(.extra-anim-remove) .workspace-leaf-content:not(:has(.view-content)) {
 /* 12. MOBILE & TABLET OVERRIDES                                     */
 /* ================================================================= */
 
+
 /* Sets the selected menu thing to have rounder corners in phone mode */
 .is-phone .suggestion-item.is-selected, 
 .is-phone .suggestion-item.mod-complex.is-selected {
@@ -2111,7 +2119,8 @@ body:not(.extra-anim-remove) .workspace-leaf-content:not(:has(.view-content)) {
   color: var(--interactive-accent) !important;
 }
 
-/* Add neumorphic styling to settings & pin buttons on mobile */
+/* Add neumorphic styling to settings & pin & sync buttons on mobile */
+.is-mobile .sync-status-icon,
 .is-mobile .clickable-icon.mod-pin,
 .is-mobile .clickable-icon.mod-settings {
   background-color: var(--button-color-1);
@@ -2119,14 +2128,35 @@ body:not(.extra-anim-remove) .workspace-leaf-content:not(:has(.view-content)) {
   box-shadow: var(--shadow);
   touch-action: manipulation;
 }
-.is-phone .sidebar-toggle-button:hover,
+.is-mobile .sync-status-icon:hover,
 .is-mobile .mod-pin:hover,
-.is-phone .clickable-icon.mod-settings:hover {
+.is-mobile .clickable-icon.mod-settings:hover {
   box-shadow: var(--shadow-hover);
 }
-.is-phone .sidebar-toggle-button:active,
+.is-mobile .sync-status-icon.has-active-menu,
+.is-mobile .sync-status-icon:active,
 .is-mobile .mod-pin:active,
 .is-phone .clickable-icon.mod-settings:active {
+  box-shadow: var(--shadow-active);
+}
+
+/* Make the "Pin" icon have an active color when the sidebar is pinned*/
+.is-tablet .workspace-drawer.is-pinned .clickable-icon.mod-pin {
+  background-color: var(--background-primary) !important;
+}
+
+/* Adds Neumorphic styling to the button to go back in mobile settings*/
+.is-phone .modal-setting-back-button {
+  background-color: var(--interactive-normal);
+  box-shadow: var(--shadow);
+  border-radius: var(--button-radius-medium);
+  transform: translateY(5px); 
+  left: 10px !important;
+}
+.is-phone .modal-setting-back-button:hover {
+  box-shadow: var(--shadow-hover);
+}
+.is-phone .modal-setting-back-button:active {
   box-shadow: var(--shadow-active);
 }
 
@@ -2180,11 +2210,6 @@ body:not(.extra-anim-remove) .workspace-leaf-content:not(:has(.view-content)) {
   backdrop-filter: blur(4px) saturate(30%); /* blur & saturate the background*/
 }
 
-/* Forgot what this does */
-.is-tablet .mod-raised {
-  background-color: var(--button-color-1);
-}
-
 /* More tablet sidebar settings */
 .is-tablet .workspace-drawer-active-tab-container {
  padding-top: 20px;
@@ -2211,6 +2236,38 @@ body:not(.extra-anim-remove) .workspace-leaf-content:not(:has(.view-content)) {
 }
 .is-phone .view-header .view-header-left .view-action:active {
  box-shadow: var(--shadow-active);
+}
+
+/* Add specific padding for document title on mobile */
+.is-phone .view-header-title {
+  padding-top: 13px !important;
+  height: 45px;
+}
+
+/* Add color to applicable back/forward buttons (left of document title) */
+[aria-label="Navigate forward"][aria-disabled="true"],
+[aria-label="Navigate back"][aria-disabled="true"] {
+  color: var(--text-muted) !important;
+}
+[aria-label="Navigate forward"][aria-disabled="false"],
+[aria-label="Navigate back"][aria-disabled="false"] {
+  color: var(--text-normal) !important;
+}
+
+/* Set document title breadcrumb colors */
+.workspace-leaf.mod-active .view-header-breadcrumb {
+    color: var(--text-muted);
+}
+.workspace-leaf.mod-active .view-header-title {
+    color: var(--text-normal);
+}
+
+/* Sets the left sidebar opener to be a consistent color. Mostly useful in dark mode */
+.is-phone .view-header .view-header-left .view-action {
+    background-color: var(--interactive-normal) !important;
+}
+.is-phone .view-header .view-header-left .view-action:hover {
+    background-color: var(--interactive-hover) !important;
 }
 
 /* Add a bunch of random dragable areas */
@@ -2415,6 +2472,12 @@ body:not(.setting-item-title-icon-remove):not(.is-phone) .vertical-tab-header-gr
 /* Set round corners for PDF previews */
 .pdf-sidebar-container .thumbnail::before {
   border-radius: var(--button-radius-medium);
+}
+
+/* Set round corners for PDF pages */
+.canvasWrapper,
+.canvasWrapper canvas {
+  border-radius: var(--list-radius-large);
 }
 
 /* Set colors and stuff for selected PDF page */

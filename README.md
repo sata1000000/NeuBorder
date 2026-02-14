@@ -14,9 +14,9 @@ NeuBorder is a rework of [obsidian-border](https://github.com/Akifyss/obsidian-b
 3. Select the "NeuBorder" box.
 4. Select the "Install and use" box.
 
-## Installation (Without Obsidian Theme Repository).
-1. Download the latest version of `NeuBorder.zip` from [Releases](https://github.com/sq1000000/NeuBorder/releases).
-2. Extract `NeuBorder.zip` into `vault/.obsidian/themes/`.
+## Installation (Without Obsidian Theme Repository)
+1. Download the latest zip from [Releases](https://github.com/sq1000000/NeuBorder/releases).
+2. Extract the zip into `vault/.obsidian/themes/`.
 3. In Obsidian, click the drop-down menu in `Settings/Appearance/Themes`, and select "NeuBorder".
 
 ## Contribute
