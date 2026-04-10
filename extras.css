@@ -1,0 +1,185 @@
+/*
+This css contains some excerpts that can be used with the NeuBorder theme.
+*/
+
+/* ================================================================= */
+/* ??. Custom window borders                                         */
+/* ================================================================= */
+
+/* Bottom window border --
+body:not(.is-mobile) .horizontal-main-container {
+  padding-bottom: 24px;
+}
+
+/* Bottom window border (2) --
+body:not(.is-mobile).is-popout-window .horizontal-main-container {
+  padding-bottom: 16px;
+}
+
+/* Defines right border --
+body:not(.is-mobile) .workspace {
+  margin-right: 16px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Defines popout window borders --
+.is-popout-window .workspace {
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+/* Extra spacing for window controls  --
+.mod-windows,
+.mod-linux {
+  --frame-right-space: 110px;
+}
+
+/* Status bar tweaks (So it can fit in the new bottom border)--
+body {
+  --status-bar-background: transparent;
+  --status-bar-border-color: transparent;
+  --status-bar-border-width: 0;
+}
+.status-bar {
+  border-radius: 0px;
+  box-shadow: none;
+  border-width: 0px;;
+  right: 0rem;
+  bottom: 0rem;
+  padding: 0 16px 0 0;
+  width: calc(100% - 44px);
+  min-height: 16px;
+}
+
+.status-bar-item.mod-clickable:hover {
+  color: var(--status-bar-text-color);
+}
+
+.status-bar-item {
+  height: 24px;
+}
+*/
+
+/* ================================================================= */
+/* ??. Neumorphic Vault switcher drawer                              */
+/* ================================================================= */
+
+/*
+.workspace-drawer-vault-switcher,
+.workspace-drawer-vault-actions .clickable-icon {
+  color: var(--nav-item-color);
+  background-color: var(--button-color-1);
+  box-shadow: var(--shadow);
+  border-radius: var(--button-radius-medium);
+  height: 35px;
+  width: 35px;
+  margin-left: 7px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.workspace-drawer-vault-switcher:hover,
+.workspace-drawer-vault-actions .clickable-icon:hover {
+  box-shadow: var(--shadow-hover);
+}
+.workspace-drawer-vault-switcher:active,
+.workspace-drawer-vault-switcher.has-active-menu,
+.workspace-drawer-vault-actions .clickable-icon:active {
+  box-shadow: var(--shadow-active);
+}
+.workspace-drawer-vault-actions {
+  margin-right: 7px;
+}
+*/
+
+/* ================================================================= */
+/* ??. Legacy dark coloring (from before the 2026-04-10 change)      */
+/* ================================================================= */
+
+/*
+.theme-dark {
+  color-scheme: dark;
+  --background-base: #2b2b2b;
+  --background: var(--background-base);
+  --background-primary: var(--background-base);
+  --background-primary-alt: #252525;
+  --background-secondary: var(--background-base);
+  --background-tertiary: hsl(var(--accent-h), 40%, 25%);
+  --shadow:
+    5px 5px 10px rgba(0, 0, 0, 0.5),
+    -5px -5px 10px rgba(255, 255, 255, 0.06);
+
+  --shadow-hover:
+    inset 3px 3px 3px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 3px rgba(255, 255, 255, 0.06);
+
+  --shadow-active:
+    inset 3px 3px 3px rgba(0, 0, 0, 0.7),
+    inset -3px -3px 3px rgba(255, 255, 255, 0.04);
+
+  --shadow-selected:
+    inset 3px 3px 3px rgba(0, 0, 0, 0.6);
+
+  --shadow-scrollbar:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.06);
+  
+  --shadow-s:
+    0px 1px 2px rgba(0, 0, 0, 0.3),
+    0px 3px 6px rgba(0, 0, 0, .4);
+  
+  --shadow-l:
+    0px 4px 10px rgba(0, 0, 0, 0.4), 
+    0px 10px 30px rgba(0, 0, 0, 0.5);
+
+  --text-normal: #dcdcdc;
+  --text-muted: #999999;
+  --text-faint: #666666;
+  --text-error: #ff6666;
+  --text-error-hover: #ff9999;
+  --text-matched: #2ecc71;
+  
+  --accent-h: 232;
+  --accent-s: 70%;
+  --accent-l: 70%;
+  
+  --interactive-accent: 
+    hsl(var(--accent-h),
+    var(--accent-s), 
+    var(--accent-l));
+
+  --interactive-accent-hover: 
+    hsl(var(--accent-h), 
+    var(--accent-s), 
+    calc(var(--accent-l) + 5%));
+  
+  --interactive-normal: var(--background-base); 
+  --interactive-hover: #323232; 
+  --button-color-1: var(--background-base);
+  
+  --background-modifier-border: rgba(0, 0, 0, 0.3); 
+  --background-modifier-border-focus: rgba(255, 255, 255, 0.1);
+  --background-modifier-border-hover: rgba(255, 255, 255, 0.1);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.5);
+  --background-modifier-cover: rgba(0, 0, 0, 0.6);
+  --background-modifier-form-field: rgba(0, 0, 0, 0.2); 
+  
+  --color-base-00: #1a1a1a;
+  --color-base-05: #202020;
+  --color-base-10: #252525;
+  --color-base-20: #2b2b2b; 
+  --color-base-25: #333333;
+  --color-base-30: #3b3b3b;
+  --color-base-35: #444444;
+  --color-base-40: #555555;
+  --color-base-50: #666666;
+  --color-base-60: #777777;
+  --color-base-70: #888888;
+  --color-base-80: #aaaaaa;
+  --color-base-90: #cccccc;
+  --color-base-100: #ffffff;
+  --nav-item-color: var(--text-normal);
+  --blockquote-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+*/
