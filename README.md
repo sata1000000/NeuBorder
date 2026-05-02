@@ -2,7 +2,7 @@
 
 A neumorphic rework of [obsidian-border](https://github.com/Akifyss/obsidian-border).
 
-![GitHub Repo stars](https://img.shields.io/github/stars/sq1000000/NeuBorder?color=%23eac54f&style=flat-square) ![GitHub issues](https://img.shields.io/github/issues/sq1000000/NeuBorder?color=%232da44e&style=flat-square) ![GitHub closed issues](https://img.shields.io/github/issues-closed/sq1000000/NeuBorder?color=%238250df&style=flat-square)
+![GitHub Repo stars](https://img.shields.io/github/stars/sata1000000/NeuBorder?color=%23eac54f&style=flat-square) ![GitHub issues](https://img.shields.io/github/issues/sata1000000/NeuBorder?color=%232da44e&style=flat-square) ![GitHub closed issues](https://img.shields.io/github/issues-closed/sata1000000/NeuBorder?color=%238250df&style=flat-square)
 
 ![Screenshot](./img/cover.png)
 
@@ -15,12 +15,12 @@ NeuBorder is a rework of [obsidian-border](https://github.com/Akifyss/obsidian-b
 4. Select the "Install and use" box.
 
 ## Installation (Without Obsidian Theme Repository)
-1. Download the latest zip from [Releases](https://github.com/sq1000000/NeuBorder/releases).
+1. Download the latest zip from [Releases](https://github.com/sata1000000/NeuBorder/releases).
 2. Extract the zip into `vault/.obsidian/themes/`.
 3. In Obsidian, click the drop-down menu in `Settings/Appearance/Themes`, and select "NeuBorder".
 
 ## Contribute
-If you want to add a feature, you can so so with a [pull request](https://github.com/sq1000000/NeuBorder/pulls), or beg [sq1000000](https://github.com/sq1000000) to add the feature in [issues](https://github.com/sq1000000/NeuBorder/issues).
+If you want to add a feature, you can so so with a [pull request](https://github.com/sata1000000/NeuBorder/pulls), or beg [sata1000000](https://github.com/sata1000000) to add the feature in [issues](https://github.com/sata1000000/NeuBorder/issues).
 
 ## Credits
 - [Akifyss ](https://github.com/Akifyss) for the [theme](https://github.com/Akifyss/obsidian-border) that this is based off of.
